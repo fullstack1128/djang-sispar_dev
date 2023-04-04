@@ -1,0 +1,12 @@
+django>=4.1,<4.2
+argon2-cffi
+django-configurations[cache,database,email,search]
+django-localflavor
+model_bakery
+crispy-bootstrap5
+django-anymail[mailgun]
+python-dotenv
+requests
+django-recaptcha
+gunicorn
+whitenoise<6.4.0

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static crispy_forms_tags %}
+{% block title %}
+    SISPAR - PAINEL
+{% endblock title %}
+{% block content %}
+    <section class="login-wrapper">
+        <div class="container">
+            <div class="enter-block">
+                <h1>Olá, Admin!</h1>
+                <h6>Faça o login para acessar o painel</h6>
+                {% crispy form %}
+            </div>
+        </div>
+    </section>
+{% endblock content %}

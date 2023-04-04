@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+{% load static humanize %}
+{% block title %}
+    SISPAR - Sistema de Emissão de Boletos e Parcelamento
+{% endblock title %}
+{% block header_attrs %}
+    class="inner-header"
+{% endblock header_attrs %}
+{% block header_side %}
+    <div class="right-nav">
+        <div class="topnav">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <h6>SISPAR - Sistema de Emissão de Boletos e Parcelamento</h6>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <h5>Data e Hora de login: {{ user.last_login }}</h5>
+                    <h5>
+                        <a href={% url 'logout' %}>Sair</a>
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="bottomnav">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <h6>Usuário: {{ user.username }}</h6>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <h5>Produção - 1.28.0 (BUILD 14)</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock header_side %}
+{% block body_attrs %}
+    style="background-color: var(--theme-light);"
+{% endblock body_attrs %}
+{% block content %}
+    <div class="document-wrp">
+        <div class="container">
+            <div class="titlebar">
+                <h3>
+                    <img src={% static "images/title-img.webp" %} alt="" />
+                    PORTAL SISPAR - EMISSÃO DE DOCUMENTOS
+                </h3>
+            </div>
+            <div class="document-block">
+                <h2>Dados da Negociação</h2>
+                {% if fatura.is_a_vista %}
+                    <div class="row">
+                        <div class="col-md-7 col-sm-12">
+                            <ul class="document-info">
+                                <li>
+                                    <span>Negociação</span> 0051 - PROGRAMA DE REESCALONAMENTO DO PAGAMENTO DE DEBITOS
+                                </li>
+                                <li>
+                                    <span>Modalidade</span> 0006 - REVISÃO E REDUÇÃO DE TRIBUTOS
+                                </li>
+                                <li>
+                                    <span>Contribuinte</span> {{ user.dados.nome }}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-5 col-sm-12">
+                            <ul class="document-info document-right-info">
+                                <li>
+                                    <span>Valor Originário</span> {{ fatura.valor|intcomma }}
+                                </li>
+                                <li>
+                                    <span>Valor Sd. Devedor</span> {{ saldo_devedor|intcomma }}
+                                </li>
+                                <li>
+                                    <span>Banco do Contribuinte</span> {{ fatura.banco }}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="row">
+                        <div class="col-md-7 col-sm-12">
+                            <ul class="document-info">
+                                <li>
+                                    <span>Negociação</span>  0051 - PROGRAMA DE REESCALONAMENTO DO PAGAMENTO DE DEBITOS
+                                </li>
+                                <li>
+                                    <span>Modalidade</span>  0006 - REVISÃO E REDUÇÃO DE TRIBUTOS
+                                </li>
+                                <li>
+                                    <span>Contribuinte</span>  {{ user.dados.nome }}
+                                </li>
+                                <li>
+                                    <span>Valor Originário</span>  {{ fatura.valor|intcomma }}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-5 col-sm-12">
+                            <ul class="document-info document-right-info">
+                                <li>
+                                    <span>Valor Sd. Devedor</span>     {{ saldo_devedor|intcomma }}
+                                </li>
+                                <li>
+                                    <span>Entrada</span>    			{{ fatura.entrada|intcomma }}
+                                </li>
+                                <li>
+                                    <span>Parcelas</span>    {{ fatura.numero_parcelas }}
+                                </li>
+                                <li>
+                                    <span>Banco do Contribuinte</span>    {{ fatura.banco }}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+            <div class="document-table">
+                <h2>Dados da Negociação</h2>
+                <table id="example"
+                       class="table dt-responsive nowrap table-borderless"
+                       style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Nr. Prestação</th>
+                            <th>Valor Originário</th>
+                            <th>Valor Sd. Devedor</th>
+                            <th>Vencimento Prestação</th>
+                            <th>Inscrição</th>
+                            <th>
+                                Emissão
+                            </th>
+                            <th>
+                                Documento
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                0001
+                            </td>
+                            <td>
+                                {{ fatura.valor|intcomma }}
+                            </td>
+                            <td>
+                                {{ saldo_devedor|intcomma }}
+                            </td>
+                            <td>
+                                29/04/2022
+                            </td>
+                            <td>
+                                {{ fatura.inscricao }}
+                            </td>
+                            <td>
+                                <i class="fal fa-check"></i>
+                            </td>
+                            <td>
+                                <a href="/usuario/fatura/{{fatura.id}}" target="_blank">Ver</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

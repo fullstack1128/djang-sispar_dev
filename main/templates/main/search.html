@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+{% load static %}
+{% block style %}
+    <link rel="stylesheet" href={% static "assets/css/bootstrap.min.css" %} />
+    <link rel="stylesheet" href={% static "assets/css/style.css" %} />
+    <link rel="stylesheet" href={% static "assets/css/responsive.css" %} />
+{% endblock style %}
+{% block body_attrs %}
+    style="background-color: var(--theme-light);"
+{% endblock body_attrs %}
+{% block header %}
+    <header class="header-area">
+        <div class="container-fluid">
+            <div class="header-content">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-md-3 col-6">
+                        <div class="logo">
+                            <a href={% url 'index' %}>
+                                <img src={% static "assets/img/Logo.svg" %} alt="" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="header-btn text-end">
+                            {% if request.user.is_authenticated %}
+                                <a href={% url 'index_usuario' %} class="site-btn">Dashboard</a>
+                            {% else %}
+                                <a href={% url 'login' %} class="site-btn">Entrar</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock header %}
+{% block content %}
+    <main>
+        <section class="result-area section-padding">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-7 col-lg-6">
+                        <div class="result-box">
+                            <div class="section-content">
+                                <h4>Resultado da Consulta</h4>
+                                {% if dividas|length == 0 %}
+                                    <div class="alert-box mb-4 mt-4">
+                                        <img src={% static "assets/img/alert.svg" %} alt="" />
+                                        Nenhum registro foi encontrado
+                                    </div>
+                                {% elif dividas|length == 1 %}
+                                    {% with dividas|first as divida %}
+                                        <div class="alert-box mb-4 mt-4">
+                                            <img src={% static "assets/img/alert.svg" %} alt="" />
+                                            1 registro encontrado
+                                        </div>
+                                        <table class="table table-bordered table-hover">
+                                            <tr>
+                                                <td>CNPJ</td>
+                                                <td>{{ divida.cpfCnpj }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Devedor</td>
+                                                <td>{{ divida.nomeDevedor }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Inscrição</td>
+                                                <td>{{ divida.numeroInscricao }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Unidade</td>
+                                                <td>{{ divida.nomeUnidade }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Processo</td>
+                                                <td>{{ divida.numeroProcesso }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Situação</td>
+                                                <td>{{ divida.situacaoDescricao }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Valor</td>
+                                                <td>{{ divida.valorTotalConsolidadoMoeda }}</td>
+                                            </tr>
+                                        </table>
+                                    {% endwith %}
+                                {% else %}
+                                    <div class="alert-box mb-4 mt-4">
+                                        <img src={% static "assets/img/alert.svg" %} alt="" />
+                                        {{ dividas|length }} registros encontrados
+                                    </div>
+                                    <div class="acco-box-wrap">
+                                        {% for divida in dividas %}
+                                            {% with forloop.counter as i %}
+                                                <div class="acco-box{% if i == 1 %} active{% endif %}">
+                                                    <div class="acco-box-title">
+                                                        <h5>
+                                                            <button>
+                                                                <img src={% static "assets/img/file.svg" %} alt="" />
+                                                                Encontrado {{ i }}
+                                                            </button>
+                                                        </h5>
+                                                    </div>
+                                                    <div class="acco-box-body">
+                                                        <table class="table table-bordered table-hover">
+                                                            <tr>
+                                                                <td>CNPJ</td>
+                                                                <td>{{ divida.cpfCnpj }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Devedor</td>
+                                                                <td>{{ divida.nomeDevedor }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Inscrição</td>
+                                                                <td>{{ divida.numeroInscricao }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Unidade</td>
+                                                                <td>{{ divida.nomeUnidade }}</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Processo</td>
+                                                                <td>
+                                                                    {{ divida.numeroProcesso }}
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Situação
+                                                                </td>
+                                                                <td>
+                                                                    {{ divida.situacaoDescricao }}
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Valor
+                                                                </td>
+                                                                <td>
+                                                                    {{ divida.valorTotalConsolidadoMoeda }}
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                        <a href={% url 'index' %} class="site-btn w-100">Nova Consulta</a>
+                                                    </div>
+                                                </div>
+                                            {% endwith %}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                {% if dividas|length < 2 %}
+                                    <a href={% url 'index' %} class="site-btn w-100">Nova Consulta</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock content %}
+{% block script %}
+    <script src={% static "assets/js/main.js" %}></script>
+{% endblock script %}

@@ -1,0 +1,104 @@
+
+/*========== XL-DESKTOP : BETWEEN 1200px TO 1500PX. ==========*/
+@media (min-width: 1200px) and (max-width: 1500px) {
+   /* GLOBAL */
+   h1 {font-size: 50px;}
+   h2 {font-size: 40px;}
+   h3 {font-size: 35px;}
+   h4 {font-size: 28px;}
+   h5 {font-size: 18px;}
+   h6 {font-size: 16px;}
+   body {
+      font-size: 16px;
+   }
+   .container {
+      max-width: 1120px;
+   }
+   /* GLOBAL// */
+}
+
+/*========== LG + MD : BETWEEN 768PX TO 1199PX. ==========*/
+@media (min-width: 768px) and (max-width: 1199px) {
+   /* GLOBAL */
+   h1 {font-size: 35px;}
+   h2 {font-size: 30px;}
+   h3 {font-size: 26px;}
+   h4 {font-size: 22px;}
+   h5 {font-size: 18px;}
+   h6 {font-size: 14px;}
+   body {
+      font-size: 14px;
+   }
+}
+
+/*========== LG-DESKTOP : BETWEEN 992PX TO 1199px. ==========*/
+@media (min-width: 992px) and (max-width: 1199px) {
+   /* GLOBAL */
+   .container {
+      max-width: 920px;
+   }
+   /* GLOBAL// */
+}
+
+/*========== MD-TABLET : BETWEEN 768PX TO 991PX ==========*/
+@media (min-width: 768px) and (max-width: 991px) {
+   /* GLOBAL */
+   .container {
+      max-width: 750px;
+   }
+   /* GLOBAL// */
+}
+
+/*========== SMALL MOBILE : SMALLER THEN 767PX ==========*/
+@media (max-width: 767px) {
+   /* GLOBAL */
+   h1 {font-size: 36px;}
+   h2 {font-size: 30px;}
+   h3 {font-size: 28px;}
+   h4 {font-size: 24px;}
+   h6 {font-size: 16px;}
+   body {
+      font-size: 16px;
+   }
+   .section-padding {
+      padding-top: 2.5em;
+      padding-bottom: 2.5em;
+   }
+   /* GLOBAL// */
+
+   /* ID AREA */
+   .id-box {
+      border-radius: .5em;
+   }
+   /* ID AREA// */
+
+   /* ID AREA */
+   .alert-box {
+      font-size: 16px;
+   }
+   .result-box {
+      font-size: .95em;
+      padding: 2em 1.5em;
+   }
+   /* ID AREA// */
+
+   /* USER AREA */
+   .page-link {
+      font-size: 12px;
+      padding: .4em .85em;
+   }
+   .page-item:first-child .page-link span, .page-item:last-child .page-link span {
+      display: none;
+   }
+   /* USER AREA// */
+
+
+}
+
+/*========== LARGE MOBILE : BETWEEN 480PX TO 767PX ==========*/
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+   .container {
+      max-width: 450px;
+   }
+}
+

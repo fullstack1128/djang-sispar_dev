@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <!-- Meta tag -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- Favicon & Title -->
+        <title>
+            {% block title %}
+                SISPAR - Sistema de Emissão de Boletos e Parcelamento
+            {% endblock title %}
+        </title>
+        <!-- CSS only -->
+        {% block style %}
+            <link rel="stylesheet"
+                  href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+            <link rel="stylesheet"
+                  type="text/css"
+                  href="{% static "css/dataTables.bootstrap5.min.css" %}"/>
+            <link rel="stylesheet"
+                  type="text/css"
+                  href="{% static "css/responsive.bootstrap5.min.css" %}"/>
+            <link rel="stylesheet"
+                  type="text/css"
+                  href="{% static "css/bootstrap.min.css" %}"/>
+            <link rel="stylesheet" type="text/css" href={% static "css/style.css" %} />
+            <link rel="stylesheet"
+                  type="text/css"
+                  href="{% static "css/responsive.css" %}"/>
+        {% endblock style %}
+    </head>
+    <body {% block body_attrs %}{% endblock body_attrs %}>
+        <div class="main-wrpper">
+            <!-- Header -->
+            {% block header %}
+                <header {% block header_attrs %}{% endblock header_attrs %}>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-12">
+                                <div class="logo-box">
+                                    <a href={% url 'index' %}>
+                                        <img src={% static "images/logo.webp" %} alt="" />
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-9 col-sm-12">
+                                {% block header_side %}
+                                {% endblock header_side %}
+                            </div>
+                        </div>
+                    </div>
+                </header>
+            {% endblock header %}
+            <!-- End Header -->
+            {% block content %}
+            {% endblock content %}
+        </div>
+        <!-- script -->
+        {% block script %}
+            <script src={% static "js/jquery.js" %}></script>
+            <script src={% static "js/bootstrap.min.js" %}></script>
+            <script src={% static "js/jquery.dataTables.min.js" %}></script>
+            <script src={% static "js/dataTables.bootstrap5.min.js" %}></script>
+            <script src={% static "js/dataTables.responsive.min.js" %}></script>
+            <script src={% static "js/responsive.bootstrap5.min.js" %}></script>
+            <script src={% static "js/custom.js" %}></script>
+        {% endblock script %}
+        <!-- End script -->
+    </body>
+</html>

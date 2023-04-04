@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static crispy_forms_tags %}
+{% block title %}
+    SISPAR - Sistema de Emissão de Boletos e Parcelamento
+{% endblock title %}
+{% block content %}
+    <section class="login-wrapper acessar-wrp">
+        <div class="container">
+            <h1>Acessar serviços</h1>
+            <div class="enter-block">
+                <h2>Já sou cadastrado</h2>
+                {% crispy form %}
+            </div>
+            <div class="notebx">
+                <p>
+                    Esse site é protegido pelo hCaptcha e sua Política de Privacidade e os
+                    Termos de Serviços se aplicam.
+                </p>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
+{% block script %}
+    <script src={% static "js/jquery.js" %}></script>
+    <script src={% static "js/bootstrap.min.js" %}></script>
+    <script src={% static "js/jquery.dataTables.min.js" %}></script>
+    <script src={% static "js/dataTables.bootstrap5.min.js" %}></script>
+    <script src={% static "js/dataTables.responsive.min.js" %}></script>
+    <script src={% static "js/responsive.bootstrap5.min.js" %}></script>
+    <script src={% static "js/custom.js" %}></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+    <script>
+    $(document).ready(function () {
+        var $cnpj = $("input[name=username]");
+        $cnpj.mask('00.000.000/0000-00', {reverse: true});
+    });
+    </script>
+{% endblock script %}

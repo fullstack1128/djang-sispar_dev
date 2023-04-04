@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static crispy_forms_tags %}
+{% block title %}
+    SISPAR - CRIAR FATURA
+{% endblock title %}
+{% block header %}
+    <header {% block header_attrs %}{% endblock header_attrs %}>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-12">
+                    <div class="logo-box">
+                        <a href={% url 'admin_index' %}>
+                            <img src={% static "images/logo.webp" %} alt="" />
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-9 col-sm-12">
+                    {% block header_side %}
+                    {% endblock header_side %}
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock header %}
+{% block content %}
+    <section class="login-wrapper acessar-wrp">
+        <div class="container">
+            <h1>Cobrança</h1>
+            <div class="enter-block invoice-block">{% crispy form %}</div>
+        </div>
+    </section>
+{% endblock content %}
+{% block script %}
+    <script src={% static "js/jquery.js" %}></script>
+    <script src={% static "js/bootstrap.min.js" %}></script>
+    <script src={% static "js/jquery.dataTables.min.js" %}></script>
+    <script src={% static "js/dataTables.bootstrap5.min.js" %}></script>
+    <script src={% static "js/dataTables.responsive.min.js" %}></script>
+    <script src={% static "js/responsive.bootstrap5.min.js" %}></script>
+    <script src={% static "js/custom.js" %}></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+    <script src={% static 'js/criar_fatura.js' %}></script>
+    <script>
+        $(function(){
+  
+            $('#eye').click(function(){
+                 
+                  if($(this).hasClass('fa-eye-slash')){
+                     
+                    $(this).removeClass('fa-eye-slash');
+                    
+                    $(this).addClass('fa-eye');
+                    
+                    $('#password').attr('type','text');
+                      
+                  }else{
+                   
+                    $(this).removeClass('fa-eye');
+                    
+                    $(this).addClass('fa-eye-slash');  
+                    
+                    $('#password').attr('type','password');
+                  }
+              });
+          });
+    </script>
+{% endblock script %}

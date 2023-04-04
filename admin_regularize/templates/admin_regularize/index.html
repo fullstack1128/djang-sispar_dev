@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+{% load static humanize %}
+{% block title %}
+    SISPAR - PAINEL
+{% endblock title %}
+{% block style %}
+    <link rel="stylesheet" href={% static "assets/css/bootstrap.min.css" %} />
+    <link rel="stylesheet" href={% static "assets/css/style.css" %} />
+    <link rel="stylesheet" href={% static "assets/css/responsive.css" %} />
+{% endblock style %}
+{% block header %}
+    <header class="header-area">
+        <div class="container-fluid">
+            <div class="header-content">
+                <div class="row align-items-center g-3 justify-content-center">
+                    <div class="col-md-3 col-6">
+                        <div class="logo">
+                            <a href={% url 'admin_index' %}>
+                                <img src={% static "assets/img/Logo.svg" %} alt="" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 offset-md-1 col-12">
+                        <form method="get">
+                            <div class="search-box">
+                                <img src={% static "assets/img/search.svg" %} alt="" />
+                                <input type="text"
+                                       name="filter"
+                                       placeholder="Pesquisar por razão social, CNPJ, e-mail, etc..."/>
+                                <input type="hidden" name="page" value={{ page.current }} />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock header %}
+{% block body_attrs %}
+    style="background-color: var(--theme-light);"
+{% endblock body_attrs %}
+{% block content %}
+    <main>
+        <section class="user-info-area section-padding">
+            <div class="container">
+                <div class="user-content">
+                    <div class="user-header inline-list justify-content-between mb-3 align-items-center flex-column flex-md-row">
+                        <h4 class="mb-4 mb-md-0">
+                            Usuarios <span class="pill">
+                            {% if usuarios == 1 %}
+                                {{ usuarios }} Usuario
+                            {% else %}
+                                {{ usuarios }} Usuarios
+                            {% endif %}
+                        </span>
+                    </h4>
+                    <div class="inline-list gx-2 gy-0 mt-0">
+                        <a href="{% url 'admin_criar_fatura' %}"
+                           class="site-btn"
+                           style="background-color: #5466DD">Fatura</a>
+                        <a href="{% url 'logout' %}"
+                           class="site-btn"
+                           style="background-color: #FF3B30">Sair</a>
+                    </div>
+                </div>
+                <div class="user-table-wrapper">
+                    {% if faturas|length == 0 %}
+                        <h4>Nenhum usuário encontrado</h4>
+                    {% else %}
+                        <table class="user-table table mb-4" style="background-color: #fff;">
+                            <thead style="background-color: #E7E9FF;">
+                                <tr>
+                                    <th>CNPJ</th>
+                                    <th>E-mail</th>
+                                    <th>Apuração</th>
+                                    <th>Valor</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for fatura in faturas %}
+                                    <tr>
+                                        <td>{{ fatura.cnpj }}</td>
+                                        <td>{{ fatura.email }}</td>
+                                        <td>{{ fatura.data }}</td>
+                                        <td>R$ {{ fatura.valor|intcomma }}</td>
+                                        <td class="inline-list g-3">
+                                            <a href={% url 'admin_editar_fatura' fatura.id %}>
+                                                <img src={% static "assets/img/edit.svg" %} alt="" />
+                                            </a>
+                                            <a href={% url 'admin_delete_fatura' fatura.id %}>
+                                                <img src={% static "assets/img/delete.svg" %} alt="" />
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    {% endif %}
+                </div>
+                <ul class="pagination">
+                    <li class="page-item">
+                        {% if page.has_previous %}
+                            <a class="page-link" href="?page={{ page.object.previous_page_number }}">
+                                <img src={% static "assets/img/prev.svg" %} alt="" />
+                                <span>Previous</span></a>
+                        {% endif %}
+                    </li>
+                    {% for item in page.list %}
+                        <li class="page-item {% if page.current == item %}active{% endif %}">
+                            <a class="page-link"
+                               href="{% if item == "..." %}#{% else %}?page={{ item }}{% endif %}">{{ item }}</a>
+                        </li>
+                    {% endfor %}
+                    <li class="page-item">
+                        {% if page.has_next %}
+                            <a class="page-link" href="?page={{ page.object.next_page_number }}"><span>Next</span>
+                                <img src={% static "assets/img/next.svg" %} alt="" />
+                            </a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock content %}
+{% block script %}
+    <script src={% static "assets/js/main.js" %}></script>
+{% endblock script %}

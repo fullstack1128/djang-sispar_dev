@@ -1,0 +1,20 @@
+Olá, {{ empresa.nome }}!
+
+Seguem as informações solicitadas para acessar o Portal Sispar.
+
+Os detalhes de login estão abaixo:
+                                   
+Usuário:
+{{ empresa.cnpj }}
+
+Senha:
+{{ senha }}
+
+Acesse agora: {% url 'login' %}
+
+Por motivos de seguranças, o link acima só é válido durante as próximas 24 horas.
+
+Se você não solicitou estas informações, pode ignorar este e-mail com segurança.
+
+Por favor, não responda esta mensagem. Em caso de dúvidas, acesse nossa Central de Ajuda.
+                                

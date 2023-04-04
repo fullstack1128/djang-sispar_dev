@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Email Design</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="color-scheme" content="only">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap"
+              rel="stylesheet">
+        <style type="text/css">
+        body {
+            background-color: #f0f5f0;
+        }
+
+        a {
+            color: #6677ff;
+        }
+
+        </style>
+        <style type="text/css">
+        .body,
+        .darkmode,
+        .darkmode div {
+            /* With class body on the body tag, and all elements represented here that have a background color */
+            background-image: linear-gradient(#ffffff, #ffffff) !important;
+        }
+
+        .darkmode p {
+            /* Add other selectors for other text elements */
+            -webkit-text-fill-color: #000000 !important;
+        }
+
+        @media only screen and (max-width:599px) {
+            .mob {
+                width: 100% !important;
+                text-align: center !important;
+                display: block !important;
+            }
+        }
+
+        </style>
+    </head>
+    <body>
+        <table width="100%" height="100%">
+            <tr>
+                <td width="100%" height="100%" bgcolor="#f0f5f0">
+                    <!--[if mso]>
+                 <center>
+                     <table bgcolor="#f0f5f0" style=""background:#f0f5f0;><tr><td width="600" bgcolor="#f0f5f0" style=""background:#f0f5f0;>
+<![endif]-->
+                    <div style="background: #f0f5f0;
+                                width: 100%;
+                                max-width: 600px;
+                                margin: 0 auto">
+                        <table width="100%"
+                               style="table-layout:fixed;
+                                      border-spacing: 0"
+                               cellpadding="30">
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <a href="">
+                                        <img src="https://i.ibb.co/Sr3Z9cZ/logo.png"
+                                             style="width: 100%;
+                                                    max-width: 320px"
+                                             alt="">
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%"
+                               style="table-layout:fixed;
+                                      border-spacing: 0"
+                               cellpadding="30">
+                            <tr>
+                                <td colspan="2" align="left">
+                                    <img src="https://i.ibb.co/Mc3rqPx/banner.png"
+                                         style="width: 100%;
+                                                max-width: 400px"
+                                         alt="">
+                                    <br>
+                                    <br>
+                                    <p style="font-family: 'Nunito', Helvetica, Arial, sans-serif;
+                                              font-size: 48px;
+                                              font-weight: bold;
+                                              color: #6677ff;
+                                              margin: 10px;
+                                              text-align: center">
+                                        Acesse o portal
+                                    </p>
+                                    <div style="text-align: center;margin: 0 auto;display: block;">
+                                        <img src="https://i.ibb.co/vxbrysm/line.png" alt="">
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <p style="font-family: 'Nunito', Helvetica, Arial, sans-serif;
+                                              font-size: 20px;
+                                              font-weight: normal;
+                                              color: #192252;
+                                              line-height: 1.5;
+                                              margin: 10px">
+                                        <b>Olá, {{ empresa.nome }}!</b>
+                                        <br>
+                                        <br>
+                                        Seguem as informações solicitadas para acessar o Portal Sispar.
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%"
+                               style="table-layout:fixed;
+                                      border-spacing: 0"
+                               cellpadding="30">
+                            <tr bgcolor="#e4e9e4">
+                                <td colspan="2" bgcolor="#e4e9e4">
+                                    <p style="font-family: 'Nunito', Helvetica, Arial, sans-serif;
+                                              font-size: 24px;
+                                              font-weight: bold;
+                                              color: #192252;
+                                              line-height: 1.5;
+                                              margin: 0px">
+                                        Os detalhes de login estão abaixo
+                                    </p>
+                                    <br>
+                                    <table width="100%"
+                                           style="table-layout:auto;
+                                                  border-spacing: 0"
+                                           cellpadding="5">
+                                        <tr>
+                                            <td align="left">
+                                                <p style="font-family: 'Nunito', Helvetica, Arial, sans-serif;
+                                                          font-size: 22px;
+                                                          font-weight: normal;
+                                                          color: #192252;
+                                                          line-height: 1.5;
+                                                          margin: 0px">
+                                                    Usuário:
+                                                </p>
+                                            </td>
+                                            <td align="left">
+                                                <p style="font-family: 'Nunito', Helvetica, Arial, sans-serif;
+                                                          font-size: 22px;
+                                                          font-weight: bold;
+                                                          color: #192252;
+                                                          line-height: 1.5;
+                                                          margin: 0px">
+                                                    {{ empresa.cnpj }}
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="left">
+                                                <p style="font-family: 'Nunito', Helvetica, Arial, sans-serif;
+                                                          font-size: 22px;
+                                                          font-weight: normal;
+                                                          color: #192252;
+                                                          line-height: 1.5;
+                                                          margin: 0px">
+                                                    Senha:
+                                                </p>
+                                            </td>
+                                            <td align="left">
+                                                <p style="font-family: 'Nunito', Helvetica, Arial, sans-serif;
+                                                          font-size: 22px;
+                                                          font-weight: bold;
+                                                          color: #192252;
+                                                          line-height: 1.5;
+                                                          margin: 0px">
+                                                    {{ senha }}
+                                                </p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%"
+                               style="table-layout:fixed;
+                                      border-spacing: 0"
+                               cellpadding="30">
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <div>
+                                        <!--[if mso]>
+                                      <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="" style="height:60px;v-text-anchor:middle;width:200px;" arcsize="7%" stroke="f" fillcolor="#6677ff">
+                                        <w:anchorlock/>
+                                        <center>
+                                      <![endif]-->
+                                        <a href="https://www.sispar.sjc.br/auth/login/"
+                                           style="background-color:#6677ff;
+                                                  border-radius:400px;
+                                                  color:#ffffff;
+                                                  display:inline-block;
+                                                  font-family: 'Nunito', Helvetica, Arial, sans-serif;
+                                                  font-size:18px;
+                                                  font-weight:bold;
+                                                  line-height:60px;
+                                                  text-align:center;
+                                                  text-decoration:none;
+                                                  width:200px;
+                                                  -webkit-text-size-adjust:none">Acesse agora</a>
+                                        <!--[if mso]>
+                                        </center>
+                                      </v:roundrect>
+                                    <![endif]-->
+                                    </div>
+                                    <p style="font-family: 'Nunito', Helvetica, Arial, sans-serif;
+                                              font-size: 16px;
+                                              font-weight: normal;
+                                              color: #192252;
+                                              line-height: 1.2;
+                                              margin: 10px">
+                                        Por motivos de seguranças, o link acima só é
+                                        <br>
+                                        válido durante as próximas 24 horas.
+                                    </p>
+                                    <br>
+                                    <hr>
+                                    <br>
+                                    <p style="font-family: 'Nunito', Helvetica, Arial, sans-serif;
+                                              font-size: 18px;
+                                              font-weight: normal;
+                                              color: #192252;
+                                              line-height: 1.5;
+                                              margin: 10px;
+                                              text-align: center">
+                                        Se você não solicitou estas informações, pode ignorar este e-mail com segurança.
+                                        <br>
+                                        <br>
+                                        Por favor, não responda esta mensagem. Em caso de dúvidas, acesse nossa Central de Ajuda.
+                                    </p>
+                                    <br>
+                                    <div style="text-align: center;">
+                                        <!--[if mso]>
+                                      <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="" style="height:60px;v-text-anchor:middle;width:200px;" arcsize="7%" stroke="f" fillcolor="#f7cc03">
+                                        <w:anchorlock/>
+                                        <center>
+                                      <![endif]-->
+                                        <a href=""
+                                           style="background-color:#f7cc03;
+                                                  border-radius:400px;
+                                                  color:#000000;
+                                                  display:inline-block;
+                                                  font-family: 'Nunito', Helvetica, Arial, sans-serif;
+                                                  font-size:18px;
+                                                  font-weight:bold;
+                                                  line-height:60px;
+                                                  text-align:center;
+                                                  text-decoration:none;
+                                                  width:200px;
+                                                  -webkit-text-size-adjust:none">Centro de ajuda</a>
+                                        <!--[if mso]>
+                                        </center>
+                                      </v:roundrect>
+                                    <![endif]-->
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                        <table width="100%"
+                               style="table-layout:fixed;
+                                      border-spacing: 0"
+                               cellpadding="30">
+                            <tr>
+                                <td colspan="2" align="center">
+                                    <img src="https://i.ibb.co/L6BNpbr/footer-logo.png"
+                                         style="width: 100%;
+                                                max-width: 520px"
+                                         alt="">
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <p style="font-family: 'Arial', Helvetica, Arial, sans-serif;
+                                              font-size: 10px;
+                                              color: #192252;
+                                              margin: 0px">
+                                        2023 © All Right Reserved.
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!--[if mso]>
+                    </td></tr></table>
+                </center>
+                <![endif]-->
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

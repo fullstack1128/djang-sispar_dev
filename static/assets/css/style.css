@@ -1,0 +1,546 @@
+/*========== FONT LIKED HERE ==========*/
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;700&display=swap');
+/* font-family: 'Nunito Sans', sans-serif; */
+
+/*========== FONT LIKED HERE// ==========*/
+
+/*========== BASIC STYLE ==========*/
+:root {
+   --theme-color: #5466DD;
+   --theme-light: #F7FAFC;
+   --theme-light-2: #F7FAFC;
+   --heading-color: #1A1E40;
+   --text-color: #686A79;
+   --font-family: 'Nunito Sans', sans-serif;;
+   --shadow: 0 5px 10px rgba(0,0,0,0.1);
+   scroll-behavior: smooth;
+}
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+html,
+body {
+   overflow-x: hidden;
+   position: relative;
+}
+body {
+   font-family: var(--font-family);
+   font-weight: normal;
+   font-style: normal;
+   color: var(--text-color);
+   font-size: 16px;
+}
+p {
+   line-height: 1.56;
+   margin-bottom: 15px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-family: var(--font-family);
+   color: var(--heading-color);
+   margin-bottom: 15px;
+   font-weight: 700;
+   line-height: 1.4;
+}
+h1 {font-size: 62px;}
+h2 {font-size: 48px;}
+h3 {font-size: 40px;}
+h4 {font-size: 24px;}
+h5 {font-size: 18px;}
+h6 {font-size: 16px;}
+img {
+   max-width: 100%;
+   transition: 0.3s;
+   vertical-align: middle;
+}
+a {
+   text-decoration: none;
+}
+a:hover{
+   color: var(--theme-color);
+}
+a,
+button {
+   transition: 0.3s ease;
+   color: inherit;
+   outline: medium none;
+   font-size: inherit;
+   font-family: inherit;
+   cursor: pointer;
+   background: none;
+   border: 0;
+}
+button:focus,
+input:focus,
+textarea:focus {
+   outline: 0;
+}
+ul {
+   margin: 0px;
+   padding: 0px;
+}
+li {
+   list-style: none;
+}
+*::-moz-selection {
+   background: #007acc;
+   color: #fff;
+   text-shadow: none;
+}
+*::selection {
+   background: #007acc;
+   color: #fff;
+   text-shadow: none;
+}
+/* INPUT, SELECT, TEXTAREA, PLACEHOLDER */
+input, textarea {
+	width: 100%;
+	transition: 0.3s ease;
+	font-weight: 400;
+	background: #fff;
+	color: var(--text-color);
+	font-family: inherit;
+	border: 1px solid #E6E8EE;
+	border-radius: .5em;
+	padding: .9em 1em;
+}
+::-moz-placeholder,
+::placeholder {
+    color: #686A79;
+    opacity: 1;
+}
+::-ms-placeholder {
+  color: #686A79;
+}
+::-webkit-input-placeholder {
+  color: #686A79;
+}
+/*========== BASIC STYLE// ==========*/
+
+/*========== CONTAINER WIDTH ==========*/
+.container {
+   max-width: 1250px;
+}
+/*========== CONTAINER WIDTH// ==========*/
+
+/*========== GLOBAL CSS ==========*/
+.w-100 {
+   width: 100% !important;
+ }
+ .h-100 {
+   height: 100% !important;
+ }
+ .fw-200 {
+   font-weight: 200;
+ }
+ .fw-300 {
+   font-weight: 300;
+ }
+ .fw-400 {
+   font-weight: 400;
+ }
+ .fw-500 {
+   font-weight: 500;
+ }
+ .fw-600 {
+   font-weight: 600;
+ }
+ .fw-700 {
+   font-weight: 700;
+ }
+ .flex-1 {
+   flex: 1 !important;
+ }
+ .text-uppercase {
+   text-transform: uppercase !important;
+ }
+ .text-theme {
+   color: var(--theme-color) !important;
+ } 
+.section-img img {
+  width: 100%;
+}
+ section,
+ header,
+ footer,
+ .position-relative {
+   position: relative;
+   z-index: 1;
+ }
+ .white-content h1,
+ .white-content h2,
+ .white-content h3,
+ .white-content h4,
+ .white-content h5,
+ .white-content h6,
+ .white-content p {
+   color: #fff;
+ }
+ .text-theme {
+   color: var(--theme-color) !important;
+ }
+ .bg-attachment {
+   background-position: center center;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-color: var(--gray-color);
+ }
+ .el-bg {
+   position: absolute;
+   left: 0;
+   top: 0;
+   height: 100%;
+   width: 100%;
+   z-index: -2;
+ }
+ img.el-bg,
+ svg.el-bg {
+   height: auto;
+   object-fit: cover;
+ }
+ .el-absolute {
+   position: absolute;
+   left: 0;
+   top: 0;
+   z-index: -1;
+   max-height: 100%;
+ }
+ .el-absolute.right-center,
+ .el-absolute.left-center,
+ .el-absolute.center-center,
+ .el-absolute.center-right,
+ .el-absolute.center-left {
+   top: 50%;
+   transform: translate(0, -50%);
+ }
+ .el-absolute.bottom-center,
+ .el-absolute.top-center,
+ .el-absolute.center-center {
+   left: 50%;
+ }
+ .el-absolute.bottom-center,
+ .el-absolute.top-center {
+   transform: translate(-50%);
+ }
+ .el-absolute.center-center {
+   transform: translate(-50%, -50%);
+ }
+ .el-absolute.right-center,
+ .el-absolute.top-right,
+ .el-absolute.bottom-right,
+ .el-absolute.center-right {
+   left: auto;
+   right: 0;
+ }
+ .el-absolute.bottom-center,
+ .el-absolute.bottom-right,
+ .el-absolute.bottom-left {
+   top: auto;
+   bottom: 0;
+ }
+.section-overlay::before{
+   content: '';
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   height: 100%;
+   width: 100%;
+   z-index: -1;
+   background: #000;
+   opacity: .6;
+   transition: .3s ease;
+}
+.inline-list {
+   display: flex;
+   flex-wrap: wrap;
+   margin-top: calc(-1 * var(--bs-gutter-y));
+   margin-right: calc(-1 * var(--bs-gutter-x));
+   margin-left: calc(-1 * var(--bs-gutter-x));
+}
+.inline-list > * {
+   margin-top: calc(1 * var(--bs-gutter-y));
+   margin-right: calc(1 * var(--bs-gutter-x));
+   margin-left: calc(1 * var(--bs-gutter-x));
+}
+.section-padding{
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+/*========== GLOBAL CSS// ==========*/
+
+
+/*========== HEADER AREA ==========*/
+.header-area {
+	background: #fff;
+	padding: 1.2em 0;
+}
+.site-btn {
+	background: var(--theme-color);
+	color: #fff !important;
+	padding: .8em 3em;
+	border-radius: .4em;
+	display: inline-block;
+	text-align: center;
+}
+.site-btn:hover{
+  box-shadow: var(--shadow);
+  opacity: .8;
+}
+/*========== HEADER AREA// ==========*/
+
+/*========== ID AREA ==========*/
+
+.id-box {
+  background: #fff;
+  padding: 3em;
+  border-radius: .5em;
+}
+.id-box .site-btn {
+  padding: 1em;
+  margin-top: 1.5em;
+}
+.id-area .section-content p {
+  margin-top: 3em;
+}
+/*========== ID AREA// ==========*/
+
+/*========== RESULT AREA ==========*/
+.result-box {
+  padding: 3em;
+  background: #fff;
+}
+.alert-box {
+	background: var(--theme-light-2);
+	padding: 1.3em;
+	display: flex;
+	align-items: center;
+	color: var(--theme-color);
+	font-size: 18px;
+	font-weight: 600;
+}
+.alert-box img {
+	margin-right: .5em;
+}
+.result-area .table {
+	--bs-border-color: #E6E8EE;
+}
+.result-area .table > :not(caption) > * > * {
+	padding: 1em 1.5em;
+}
+.result-area .table td {
+  border-left-width: 0;
+  border-right-width: 0;
+}
+.result-area .table td:first-child {
+  border-left-width: 1px;
+}
+.result-area .table td:last-child {
+  border-right-width: 1px;
+}
+.result-area .table td:last-child {
+	border-right-width: 1px;
+	text-align: right;
+	font-weight: 600;
+}
+.result-box .site-btn {
+	padding: 1em;
+  margin-top: 1.5em;
+}
+/*========== RESULT AREA// ==========*/
+
+
+/*========== USER AREA ==========*/
+.pill {
+	font-size: 14px;
+	font-weight: 600;
+	background: #E0E4FC;
+	padding: .4em .7em;
+	border-radius: 2em;
+	color: var(--theme-color);
+}
+
+
+.search-box {
+  border-radius: .6em;
+  border: 1px solid #E6E8EE;
+  display: flex;
+  align-items: center;
+  padding: 0 1em;
+}
+.search-box input, textarea {
+	padding: .8em;
+	border: 0;
+}
+
+
+.checkbox {
+	display: inline-grid;
+	place-content: center;
+	height: 1.25em;
+	width: 1.25em;
+	border: 1px solid #D1D5DB;
+	border-radius: .2em;
+	position: relative;
+	cursor: pointer;
+}
+.checkbox::after {
+	content: '';
+	position: absolute;
+	height: 23%;
+	width: 50%;
+	border-left: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	transform: translate(-50%, -50%) rotate(-45deg);
+	top: 42%;
+	left: 52%;
+	opacity: 0;
+	transition: .2s ease;
+}
+.checkbox-wrap input {
+	display: none;
+}
+.checkbox-wrap input:checked ~ label .checkbox {
+  background: var(--theme-color);
+  border-color: var(--theme-color);
+}
+.checkbox-wrap input:checked ~ label .checkbox::after {
+  opacity: 1;
+}
+
+.user-table td:first-child {
+  font-weight: 600;
+  color: var(--heading-color);
+}
+.user-table td {
+  color: #686A79;
+}
+.user-table.table > :not(caption) > * > * {
+	padding: .85em 1.5em;
+}
+.user-table.table > :not(caption) > * > td {
+	padding: 1.4em 1.5em;
+}
+.user-table th .checkbox {
+	background: #fff;
+	border-color: #686A79;
+}
+.user-table tr.active {
+	background: #F5F6FA;
+}
+.user-table tr:last-child td,
+.user-table tr.active td {
+  border-color: transparent;
+}
+.user-table .inline-list{
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.page-link:focus {
+	background: #E7E9FF;
+	box-shadow: none;
+}
+.page-link {
+	font-size: 14px;
+	font-weight: 500;
+	background: none;
+	border: 0;
+	background: transparent;
+	border-radius: .5em;
+	color: #686A79;
+	border: 1px solid transparent;
+	padding: .6em 1.05em;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin: 2px;
+}
+.page-item.active .page-link {
+	color: var(--theme-color);
+	background: #E7E9FF;
+	border-color: #E6E8EE;
+}
+.page-link:hover {
+	background: #E7E9FF;
+  color: inherit;
+}
+.page-item:first-child {
+  margin-right: auto;
+}
+.page-item:last-child {
+  margin-left: auto;
+}
+.page-item:first-child .page-link,
+.page-item:last-child .page-link {
+  font-weight: 600;
+}
+.page-item:first-child img{
+  margin-right: .75em;
+}
+.page-item:last-child img{
+  margin-left: .75em;
+}
+
+.user-table-wrapper {
+  overflow: auto;
+}
+.user-table.table {
+	min-width: 978px;
+}
+/*========== USER AREA// ==========*/
+
+/*========== MULTI RESULT AREA ==========*/
+
+.acco-box-body {
+  transition: 0.3s ease;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.acco-box-title button {
+ font-weight: 600;
+ width: 100%;
+ text-align: left;
+ padding: 1.2em;
+ position: relative;
+}
+.acco-box-title button img {
+ display: block;
+ margin-bottom: .5em;
+}
+.acco-box-title {
+ border-radius: .5em;
+ border: 1px solid #E6E8EE;
+ margin-bottom: .5em;
+}
+.acco-box-title h5 {
+ margin-bottom: 0;
+}
+.acco-box-title button::after {
+ content: '';
+ position: absolute;
+ right: 2em;
+ top: 50%;
+ height: .6em;
+ width: .6em;
+ border-bottom: 3px solid #000;
+ border-left: 3px solid #000;
+ transform: rotate(-45deg);
+ transition: .3s ease;
+}
+.acco-box.active .acco-box-title button::after {
+ transform: rotate(135deg);
+}
+.acco-box.active .acco-box-title {
+ border-color: var(--theme-color);
+}
+.result-box .acco-box-body .site-btn {
+ margin-bottom: 2em;
+}
+/*========== MULTI RESULT AREA// ==========*/
